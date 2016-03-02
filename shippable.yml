@@ -1,10 +1,29 @@
-
 # Language setting
 language: clojure
 
 # Version number
 lein:
   - lein2
+
 build:
+  pre_ci:
+    - docker build -t=shippabledocker/shiphitchcock1_sample_clo_unofficial .
+
+  pre_ci_boot:
+    image_name: shippabledocker/shiphitchcock1_sample_clo_unofficial
+    image_tag: latest
+    pull: false
+    
   ci:
-    - lein version
+    - lein version 
+   # - ps -eax
+   # - ls -al 
+
+  post_ci:
+    - docker push shippabledocker/shiphitchcock1_sample_clo_unofficial
+
+integrations:
+  hub:
+    - integrationName: ship-docker
+      type: docker
+      
