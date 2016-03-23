@@ -5,6 +5,11 @@ language: clojure
 # Version number
 lein:
   - lein2
+  
 build:
   ci:
     - lein version
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
+    - cd sample
+    - lein test2junit
