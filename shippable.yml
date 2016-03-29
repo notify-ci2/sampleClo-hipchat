@@ -13,7 +13,8 @@ build:
     #- mkdir -p shippable/codecoverage
     - cd sample  
     - lein test2junit
-    - sleep 2m
+   # - sleep 2m
+    - timeout 5
     
 integrations:
     notifications:
