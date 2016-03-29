@@ -6,6 +6,8 @@ language: clojure
 lein:
   - lein2
   
+timeout: 3
+
 build:
   ci:
     - lein version
@@ -13,8 +15,8 @@ build:
     #- mkdir -p shippable/codecoverage
     - cd sample  
     - lein test2junit
-   # - sleep 2m
-    - timeout 5
+    - sleep 4m
+   
     
 integrations:
     notifications:
