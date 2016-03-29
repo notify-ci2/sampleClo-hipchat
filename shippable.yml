@@ -14,7 +14,7 @@ build:
     - cd sample  
     - lein test2junit
    # - sleep 2m
-    #- timeout 5
+    - timeout 5
     
 integrations:
     notifications:
