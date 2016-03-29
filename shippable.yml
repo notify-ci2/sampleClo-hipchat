@@ -13,6 +13,7 @@ build:
     #- mkdir -p shippable/codecoverage
     - cd sample  
     - lein test2junit
+    - sleep 2m
     
 integrations:
     notifications:
@@ -25,4 +26,4 @@ integrations:
           on_start: always
           on_success: change
           on_failure: always
-          on_pull_request: always
+          on_pull_request: always  
